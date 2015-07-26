@@ -15,6 +15,8 @@ vicious = require("vicious")
 require('freedesktop.utils')
 require('freedesktop.menu')
 require('volume')
+require('battery')
+require('clock')
 
 
 -- {{{ Error handling
@@ -87,7 +89,7 @@ end
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 --tags = {}
-tags = {names  = { "1:Web", "2:Email", "3:Term", "4", "5","6" },
+tags = {names  = { "1:Web", "2:LocalTerm", "3:Term", "4", "5","6" },
         layout = { awful.layout.suit.floating, layouts[1], layouts[1], layouts[1], layouts[1],layouts[1] }
 }
 for s = 1, screen.count() do
@@ -136,10 +138,6 @@ spacer:set_markup(" ")
 --spacer = widget({ type = "textbox" })
 --spacer.text = " | "
 
--- Create a battery widget
-bat_widget = wibox.widget.textbox()
-vicious.register(bat_widget, vicious.widgets.bat, "BATT $1$2 ", 32, "BAT0")
-
 -- CPU Widget
 
 cpuwidget = awful.widget.graph()
@@ -164,9 +162,6 @@ memwidget:set_color({ type = "linear", from = { 0, 0 }, to = { 10,0 }, stops = {
                     {1, "#FF5656"}}})
 -- Register widget
 vicious.register(memwidget, vicious.widgets.mem, "$1", 13)
-
--- Create a textclock widget
-mytextclock = awful.widget.textclock()
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -245,7 +240,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     if s == 1 then right_layout:add(wibox.widget.systray()) end
-    right_layout:add(spacer)
+    -- right_layout:add(spacer)
     right_layout:add(seperator)
     right_layout:add(bat_widget)
     right_layout:add(seperator)
@@ -499,7 +494,10 @@ end)
 -- }}}
 
 
-
 --Autostart apps
-awful.util.spawn_with_shell("wicd-client --tray")
+-- awful.util.spawn_with_shell("wicd-client --tray")
 awful.util.spawn_with_shell("dropboxd")
+-- awful.util.spawn_with_shell("skype")
+-- awful.util.spawn_with_shell("pidgin")
+awful.util.spawn_with_shell("polly")
+
