@@ -8,7 +8,7 @@
 
 -- {{{ Main
 theme = {}
-theme.wallpaper = "/home/casu/.config/awesome/arch.jpg"
+theme.wallpaper = "/home/casu/.config/awesome/debian.jpg"
 -- }}}
 
 -- {{{ Styles

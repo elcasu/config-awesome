@@ -497,7 +497,15 @@ end)
 --Autostart apps
 -- awful.util.spawn_with_shell("wicd-client --tray")
 awful.util.spawn_with_shell("dropboxd")
--- awful.util.spawn_with_shell("skype")
+awful.util.spawn_with_shell("skype")
+awful.util.spawn_with_shell("slack")
 -- awful.util.spawn_with_shell("pidgin")
-awful.util.spawn_with_shell("polly")
+-- awful.util.spawn_with_shell("polly")
+awful.util.spawn_with_shell("parcellite")
 
+-- Disable screensaver
+awful.util.spawn_with_shell("xset s 0 0")
+-- Disable energy saver
+awful.util.spawn_with_shell("xset s -dpms")
+-- Dropbox client
+awful.util.spawn_with_shell("dropbox start")

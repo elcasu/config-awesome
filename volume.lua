@@ -36,7 +36,10 @@ end
 volume_widget:buttons (awful.util.table.join (
     awful.button({ }, 4, function () awful.util.spawn("amixer -c 0 set Master 1+ unmute") end),
     awful.button({ }, 5, function () awful.util.spawn("amixer -c 0 set Master 1-") end),
-    awful.button({ }, 1, function () awful.util.spawn("amixer -c 0 set Master toggle") end)
+    awful.button({ }, 1, function () awful.util.spawn("amixer -D pulse set Master toggle") end)
+    -- awful.button({ }, 4, function () awful.util.spawn("amixer -c 0 set Master 1+ unmute") end),
+    -- awful.button({ }, 5, function () awful.util.spawn("amixer -c 0 set Master 1-") end),
+		-- awful.button({ }, 1, function () awful.util.spawn("amixer -c 0 set Master toggle") end)
 ))
 
 update_volume(volume_widget)
